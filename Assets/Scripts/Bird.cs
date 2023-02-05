@@ -5,18 +5,19 @@ namespace FlappyBird
     public class Bird : MonoBehaviour
     {
         [SerializeField]
-        private Rigidbody2D rigidbody2D;
+        private Rigidbody2D rb2D;
         [SerializeField, Range(0, 10)]
         private float speed;
 
         private void Awake()
         {
-            if (rigidbody2D == null)
-                rigidbody2D = GetComponent<Rigidbody2D>();
+            if (rb2D == null)
+                rb2D = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
+            if (GameManager.Instance.isGameOver) return;
 #if UNITY_ANDROID
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 Move();
@@ -30,8 +31,14 @@ namespace FlappyBird
 
         private void Move()
         {
-            if (rigidbody2D != null)
-                rigidbody2D.velocity = Vector2.up * speed;
+            if (rb2D != null)
+                rb2D.velocity = Vector2.up * speed;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision) {
+            if (collision.gameObject.CompareTag("Pipe") || collision.gameObject.CompareTag("Ground")) {
+                GameManager.Instance.GameOver();
+            }
         }
     }
 }

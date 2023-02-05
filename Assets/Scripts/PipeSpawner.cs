@@ -32,5 +32,9 @@ namespace FlappyBird
                 Instantiate(pipe, spawnPoint.position, Quaternion.identity);
             } while (true);
         }
+
+        public void Stop() {
+            StopAllCoroutines();
+        }
     }
 }
