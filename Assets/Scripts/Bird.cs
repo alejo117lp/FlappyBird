@@ -40,5 +40,11 @@ namespace FlappyBird
                 GameManager.Instance.GameOver();
             }
         }
+
+        private void OnTriggerEnter2D(Collider2D collision) {
+            if (collision.gameObject.CompareTag("PipeTrigger")) {
+                GameManager.Instance.IncreaseScore();
+            }
+        }
     }
 }

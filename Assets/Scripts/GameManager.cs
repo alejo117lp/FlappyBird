@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float timeToReloadScene;
-    [Space,SerializeField] UnityEvent gameOver;
+    [Space,SerializeField] UnityEvent onGameOver;
+    [Space, SerializeField] UnityEvent onIncreaseScore;
 
     public bool isGameOver { get; private set; }
     public int scoreCount { get; private set; }
@@ -24,11 +25,16 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() {
         isGameOver = true;
-        if(gameOver != null) {
-            gameOver.Invoke();
+        if(onGameOver != null) {
+            onGameOver.Invoke();
         }
 
         StartCoroutine(ReloadScene());
+    }
+
+    public void IncreaseScore() {
+        scoreCount++;
+        if (onIncreaseScore != null) onIncreaseScore.Invoke();
     }
 
     IEnumerator ReloadScene() {
