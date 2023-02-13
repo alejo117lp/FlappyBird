@@ -5,8 +5,8 @@ namespace FlappyBird
 {
     public class PipeSpawner : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject pipe;
+        /*[SerializeField]
+        private GameObject pipe;*/
         [SerializeField]
         private Transform spawnPoint;
         [SerializeField]
@@ -30,13 +30,16 @@ namespace FlappyBird
         {
             yield return new WaitForSeconds(timeToSpawnFirstPipe);
 
-            Instantiate(pipe, GetSpawnPosition(), Quaternion.identity);
+            //Instantiate(pipe, GetSpawnPosition(), Quaternion.identity);
+            GameObject pipe = PipePool.Instance.RequestPipe();
+            pipe.transform.position = GetSpawnPosition();
 
             do
             {
                 yield return new WaitForSeconds(timeToSpawnPipe);
 
-                Instantiate(pipe, GetSpawnPosition(), Quaternion.identity);
+                pipe = PipePool.Instance.RequestPipe();
+                pipe.transform.position = GetSpawnPosition();
             } while (true);
         }
 

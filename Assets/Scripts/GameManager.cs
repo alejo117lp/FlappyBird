@@ -39,6 +39,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ReloadScene() {
         yield return new WaitForSeconds(timeToReloadScene);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

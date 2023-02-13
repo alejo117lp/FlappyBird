@@ -9,6 +9,10 @@ namespace FlappyBird
         [SerializeField] float timeToDestroyPipe;
 
         private void Start() {
+            //StartCoroutine(DestroyPipe());
+        }
+
+        private void OnEnable() {
             StartCoroutine(DestroyPipe());
         }
 
@@ -19,7 +23,8 @@ namespace FlappyBird
 
         IEnumerator DestroyPipe() {
             yield return new WaitForSeconds(timeToDestroyPipe);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+
         }
     }
 }
