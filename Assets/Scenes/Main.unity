@@ -172,6 +172,58 @@ MonoBehaviour:
   timeToSpawnPipe: 1.7
   minHeight: -0.25
   maxHeight: 0.5
+--- !u!1 &102449458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102449459}
+  - component: {fileID: 102449460}
+  m_Layer: 0
+  m_Name: DayTimeSelector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &102449459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102449458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 261333999}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102449460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102449458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c7b4e8afcee824aa5753a59859cf9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipe: {fileID: 638993395847159186, guid: fbbc526cae8cf7c44a45f332e92433c7, type: 3}
+  backgroundRenderer: {fileID: 956281935}
+  pipeUpDay: {fileID: 959749583, guid: 63d98d6bd04ca9b40921555fd869d8d0, type: 3}
+  pipeDownDay: {fileID: 959749583, guid: 63d98d6bd04ca9b40921555fd869d8d0, type: 3}
+  pipeUpNight: {fileID: -1120360280, guid: 63d98d6bd04ca9b40921555fd869d8d0, type: 3}
+  pipeDownNight: {fileID: 453810398, guid: 63d98d6bd04ca9b40921555fd869d8d0, type: 3}
+  backgroundNight: {fileID: 1645633249, guid: 63d98d6bd04ca9b40921555fd869d8d0, type: 3}
+  backgoroundDay: {fileID: 1357637228, guid: 63d98d6bd04ca9b40921555fd869d8d0, type: 3}
 --- !u!1 &114933250
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +367,7 @@ Transform:
   - {fileID: 266623746}
   - {fileID: 724346698}
   - {fileID: 720315405}
+  - {fileID: 102449459}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
