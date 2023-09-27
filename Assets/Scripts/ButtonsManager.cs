@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class ButtonsManager : MonoBehaviour
 {
+    [SerializeField] private string sceneToLoad = "Level";
    public void PlayGame() {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene(sceneToLoad);
    }
 
     public void QuitGame() {
