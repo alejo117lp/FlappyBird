@@ -16,11 +16,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] scores;
     public static int bestScore;
 
-    [Header("Forgot Password")]
-    [SerializeField] TMP_InputField forgotPasswordEmail;
-    [SerializeField] private TMP_Text warningForgetPasswordText;
-    [SerializeField] TMP_Text confirmationPasswordText;
-
     private void Start() {
         GetUserScore();
     }
@@ -85,36 +80,6 @@ public class UIManager : MonoBehaviour
 
     public void ClosePanel() {
         leaderboardPanel.SetActive(false);
-    }
-
-    public void ForgotPasswordButton() {
-        if (string.IsNullOrEmpty(forgotPasswordEmail.text)) {
-            warningForgetPasswordText.text = $"No has colocado correo electronico";
-            return;
-        }
-
-        FogotPassword(forgotPasswordEmail.text);
-    }
-
-    void FogotPassword(string forgotPasswordEmail) {
-
-        FirebaseAuth.DefaultInstance.SendPasswordResetEmailAsync(forgotPasswordEmail)
-            .ContinueWithOnMainThread(RestoreTask => { 
-
-                if (RestoreTask.IsCanceled) {
-                Debug.LogError($"El cambio de contraseña ha sido cancelado");
-                }
-
-                else if (RestoreTask.IsFaulted) {
-                    foreach (FirebaseException exception in RestoreTask.Exception.Flatten().InnerExceptions) {
-                        FirebaseException firebaseEx = exception as Firebase.FirebaseException;
-                        if (firebaseEx != null) {
-                            var errorCode = (AuthError)firebaseEx.ErrorCode;
-                        }
-                    }
-                }
-                confirmationPasswordText.text = "El correo para reestablecer la contraseña ha sido enviado";
-            });
     }
 }
 

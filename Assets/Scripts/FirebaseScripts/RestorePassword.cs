@@ -11,10 +11,11 @@ public class RestorePassword : MonoBehaviour
     [SerializeField] TMP_InputField forgotPasswordEmail;
     [SerializeField] private TMP_Text warningForgetPasswordText;
     [SerializeField] TMP_Text confirmationPasswordText;
+    [SerializeField] GameObject forgotPasswordPanel;
 
     public void ForgotPasswordButton() {
         if (string.IsNullOrEmpty(forgotPasswordEmail.text)) {
-            warningForgetPasswordText.text = $"No has colocado correo electronico";
+            warningForgetPasswordText.text = $"Debes ingresar tu Email asociado";
             return;
         }
 
@@ -38,7 +39,15 @@ public class RestorePassword : MonoBehaviour
                         }
                     }
                 }
-                confirmationPasswordText.text = "El correo para reestablecer la contraseña ha sido enviado";
+                confirmationPasswordText.text = "El link para restablecer tu contraseña ha sido enviado";
             });
+    }
+
+    public void OpenRestorePasswordPanel() {
+        forgotPasswordPanel.SetActive(true);
+    }
+
+    public void CloseRestorePasswordPanel() {
+        forgotPasswordPanel.SetActive(false);
     }
 }

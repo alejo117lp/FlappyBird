@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class ButtonsManager : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad = "Level";
-   public void PlayGame() {
-        SceneManager.LoadScene(sceneToLoad);
-   }
+    [SerializeField] private string sceneGame = "Level";
+    [SerializeField] private string sceneBack = "Registration";
+    public void PlayGame() {
+        SceneManager.LoadScene(sceneGame);
+    }
 
     public void QuitGame() {
         Application.Quit();
+    }
+
+    public void GoBack() {
+        SceneManager.LoadScene(sceneBack);
     }
 }
