@@ -47,14 +47,14 @@ public class ScoreController : MonoBehaviour
                 }            
             }); 
     }       
-    public void IncrementScore()    {  
+    /*public void IncrementScore()    {  
         score += 100;       
         GameObject.Find("LabelScore").GetComponent<TMPro.TMP_Text>().text = "Score: " + score;        
         WriteNewScore(score);    
-    }
+    }*/
 }
 
-public class UserData {
+/*public class UserData {
     public int score;
     public string username;
-}
+}*/
